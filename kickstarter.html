@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Petal Flow Labs — Founders Edition LED Flow Props | Kickstarter</title>
+  <meta name="description"
+    content="Back the first batch of motion-reactive LED flow props with mechanical blooming petals. Petal Staff V2 & Flow Sword — hand-built in Canada." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ─── Reset & Tokens ─── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    :root {
+      --ks-green: #05ce78;
+      --ks-green-dk: #049a5b;
+      --ks-bg: #1a1a1a;
+      --ks-surface: #242424;
+      --ks-border: rgba(255, 255, 255, .08);
+      --ks-text: #e8e8e8;
+      --ks-muted: #9a9a9a;
+      --accent: #f5a623;
+      --accent-glow: rgba(245, 166, 35, .22);
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-head: 'Outfit', system-ui, sans-serif;
+      --radius: 8px;
+      --tr: .28s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--ks-bg);
+      color: var(--ks-text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--ks-green);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ─── KS Top Bar ─── */
+    .ks-topbar {
+      background: #111;
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .ks-topbar__logo {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--ks-green);
+      letter-spacing: .5px;
+    }
+
+    .ks-topbar__logo span {
+      color: #fff;
+    }
+
+    .ks-topbar__links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .ks-topbar__links a {
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--ks-muted);
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    .ks-topbar__links a:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .ks-topbar__cta {
+      background: var(--ks-green);
+      color: #000 !important;
+      font-weight: 700 !important;
+      padding: 7px 18px;
+      border-radius: 4px;
+      font-size: .78rem !important;
+      text-transform: uppercase !important;
+      transition: background var(--tr);
+    }
+
+    .ks-topbar__cta:hover {
+      background: var(--ks-green-dk) !important;
+      text-decoration: none !important;
+    }
+
+    /* ─── Project Header ─── */
+    .proj-header {
+      background: linear-gradient(180deg, #111 0%, var(--ks-bg) 100%);
+      padding: 32px 0 0;
+      border-bottom: 1px solid var(--ks-border);
+    }
+
+    .proj-header__inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .proj-header__category {
+      font-size: .72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--ks-green);
+      margin-bottom: 10px;
+    }
+
+    .proj-header__title {
+      font-family: var(--font-head);
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .proj-header__title span {
+      color: var(--accent);
+    }
+
+    .proj-header__blurb {
+      font-size: .95rem;
+      color: var(--ks-muted);
+      max-width: 620px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .proj-header__meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: .78rem;
+      color: var(--ks-muted);
+      padding-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .proj-header__meta span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .badge-founders {
+      background: rgba(245, 166, 35, .15);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    /* ─── Two-Column Layout ─── */
+    .ks-layout {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ─── Main Content / Campaign Story ─── */
+    .ks-main {}
+
+    /* KS hero video */
+    .ks-hero-vid {
+      width: 100%;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #000;
+      margin-bottom: 40px;
+      border: 1px solid var(--ks-border);
+      position: relative;
+    }
+
+    .ks-hero-vid video {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ks-hero-vid__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, .75) 100%);
+      pointer-events: none;
+    }
+
+    .ks-hero-vid__caption {
+      position: absolute;
+      bottom: 16px;
+      left: 20px;
+      font-size: .75rem;
+      color: rgba(255, 255, 255, .65);
+      font-style: italic;
+    }
+
+    /* KS Campaign Body — mirrors KS rich text allowed blocks */
+    .ks-body {
+      font-size: .96rem;
+      line-height: 1.75;
+    }
+
+    .ks-body h2 {
+      font-family: var(--font-head);
+      font-size: 1.55rem;
+      font-weight: 700;
+      margin: 48px 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--ks-border);
+      color: #fff;
+    }
+
+    .ks-body h2:first-child {
+      margin-top: 0;
+    }
+
+    .ks-body h3 {
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 28px 0 10px;
+      color: #fff;
+    }
+
+    .ks-body p {
+      color: var(--ks-muted);
+      margin-bottom: 18px;
+    }
+
+    .ks-body p strong {
+      color: var(--ks-text);
+    }
+
+    .ks-body ul,
+    .ks-body ol {
+      margin: 0 0 20px 22px;
+      color: var(--ks-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .ks-body li::marker {
+      color: var(--ks-green);
+    }
+
+    .ks-body li strong {
+      color: var(--ks-text);
+    }
+
+    /* Section image (simulates KS image block) */
+    .ks-img-block {
+      width: 100%;
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 28px 0;
+      border: 1px solid var(--ks-border);
+    }
+
+    .ks-img-block img,
+    .ks-img-block video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .ks-img-block--caption {
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, .03);
+      font-size: .75rem;
+      color: var(--ks-muted);
+      font-style: italic;
+      text-align: center;
+      border-top: 1px solid var(--ks-border);
+    }
+
+    .ks-img-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    .ks-img-row .ks-img-block {
+      margin: 0;
+    }
+
+    /* Divider */
+    .ks-hr {
+      border: none;
+      border-top: 1px solid var(--ks-border);
+      margin: 48px 0;
+    }
+
+    /* Highlighted callout block */
+    .ks-callout {
+      border-left: 3px solid var(--ks-green);
+      background: rgba(5, 206, 120, .05);
+      padding: 18px 22px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 24px 0;
+    }
+
+    .ks-callout p {
+      color: var(--ks-text) !important;
+      margin: 0;
+      font-style: italic;
+    }
+
+    .ks-callout--amber {
+      border-left-color: var(--accent);
+      background: rgba(245, 166, 35, .06);
+    }
+
+    .ks-callout--amber p {
+      color: var(--ks-text) !important;
+    }
+
+    /* Feature grid (uses images in KS — here we simulate with cards) */
+    .ks-feat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    .ks-feat-card {
+      background: var(--ks-surface);
+      border: 1px solid var(--ks-border);
+      border-radius: var(--radius);
+      padding: 22px;
+      transition: border-color var(--tr), transform var(--tr);
+    }
+
+    .ks-feat-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .ks-feat-card__icon {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .ks-feat-card__title {
+      font-family: var(--font-head);
+      font-size: .95rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .ks-feat-card__desc {
+      font-size: .82rem;
+      color: var(--ks-muted);
+      line-height: 1.55;
+    }
+
+    /* Prop option blocks */
+    .ks-prop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    .ks-prop-card {
+      background: var(--ks-surface);
+      border: 1px solid var(--ks-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color var(--tr), transform var(--tr);
+    }
+
+    .ks-prop-card:hover {
+      border-color: var(--ks-green);
+      transform: translateY(-3px);
+    }
+
+    .ks-prop-card__vid {
+      position: relative;
+      height: 160px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .ks-prop-card__vid video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .ks-prop-card__body {
+      padding: 16px;
+    }
+
+    .ks-prop-card__label {
+      font-size: .65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--ks-green);
+      margin-bottom: 4px;
+    }
+
+    .ks-prop-card__name {
+      font-family: var(--font-head);
+      font-size: .95rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .ks-prop-card__price {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .ks-prop-card__price small {
+      font-size: .72rem;
+      color: var(--ks-muted);
+      font-weight: 400;
+    }
+
+    /* Timeline */
+    .ks-timeline {
+      margin: 28px 0;
+    }
+
+    .ks-timeline__item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      align-items: flex-start;
+    }
+
+    .ks-timeline__dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(5, 206, 120, .15);
+      border: 2px solid var(--ks-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--ks-green);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .ks-timeline__content h4 {
+      font-family: var(--font-head);
+      font-size: .95rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .ks-timeline__content p {
+      font-size: .83rem;
+      color: var(--ks-muted);
+      margin: 0;
+    }
+
+    /* Risks table */
+    .ks-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .ks-detail-card {
+      background: var(--ks-surface);
+      border: 1px solid var(--ks-border);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .ks-detail-card h4 {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .ks-detail-card p {
+      font-size: .8rem;
+      color: var(--ks-muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* Bio section */
+    .ks-bio {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      background: var(--ks-surface);
+      border: 1px solid var(--ks-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin: 24px 0;
+    }
+
+    .ks-bio__avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent) 0%, #ff6b6b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+
+    .ks-bio__text h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .ks-bio__text p {
+      font-size: .83rem;
+      color: var(--ks-muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ─── Sidebar ─── */
+    .ks-sidebar {
+      position: sticky;
+      top: 72px;
+    }
+
+    .ks-funding {
+      background: var(--ks-surface);
+      border: 1px solid var(--ks-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .ks-funding__amount {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--ks-green);
+      margin-bottom: 2px;
+    }
+
+    .ks-funding__goal {
+      font-size: .78rem;
+      color: var(--ks-muted);
+      margin-bottom: 16px;
+    }
+
+    .ks-funding__bar-wrap {
+      height: 6px;
+      background: rgba(255, 255, 255, .08);
+      border-radius: 100px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .ks-funding__bar {
+      height: 100%;
+      border-radius: 100px;
+      background: var(--ks-green);
+      width: 0%;
+      transition: width 1.6s ease;
+    }
+
+    .ks-funding__stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .ks-stat {
+      text-align: center;
+    }
+
+    .ks-stat__num {
+      font-family: var(--font-head);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .ks-stat__label {
+      font-size: .68rem;
+      color: var(--ks-muted);
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    .ks-back-btn {
+      display: block;
+      width: 100%;
+      background: var(--ks-green);
+      color: #000;
+      font-weight: 700;
+      font-size: .9rem;
+      text-align: center;
+      padding: 14px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: background var(--tr), transform var(--tr);
+      text-decoration: none !important;
+      margin-bottom: 10px;
+    }
+
+    .ks-back-btn:hover {
+      background: var(--ks-green-dk);
+      transform: translateY(-1px);
+    }
+
+    .ks-remind-btn {
+      display: block;
+      width: 100%;
+      background: transparent;
+      color: var(--ks-muted);
+      font-size: .82rem;
+      text-align: center;
+      padding: 10px;
+      border: 1px solid var(--ks-border);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: border-color var(--tr), color var(--tr);
+    }
+
+    .ks-remind-btn:hover {
+      border-color: var(--ks-green);
+      color: var(--ks-green);
+    }
+
+    .ks-funding__note {
+      font-size: .72rem;
+      color: var(--ks-muted);
+      text-align: center;
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+
+    /* Reward tiers */
+    .ks-rewards-label {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--ks-muted);
+      margin-bottom: 12px;
+    }
+
+    .ks-reward {
+      background: var(--ks-surface);
+      border: 1px solid var(--ks-border);
+      border-radius: var(--radius);
+      padding: 18px;
+      margin-bottom: 12px;
+      transition: border-color var(--tr), transform var(--tr);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .ks-reward:hover {
+      border-color: var(--ks-green);
+      transform: translateY(-2px);
+    }
+
+    .ks-reward--featured {
+      border-color: var(--accent);
+    }
+
+    .ks-reward--featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: -1px;
+      right: 16px;
+      background: var(--accent);
+      color: #000;
+      font-size: .6rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 0 0 6px 6px;
+    }
+
+    .ks-reward__amount {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ks-green);
+      margin-bottom: 4px;
+    }
+
+    .ks-reward__amount strike {
+      font-size: .78rem;
+      color: var(--ks-muted);
+      font-weight: 400;
+      margin-left: 6px;
+    }
+
+    .ks-reward__title {
+      font-size: .92rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .ks-reward__desc {
+      font-size: .78rem;
+      color: var(--ks-muted);
+      margin-bottom: 10px;
+      line-height: 1.55;
+    }
+
+    .ks-reward__includes {
+      list-style: none;
+      margin-bottom: 10px;
+    }
+
+    .ks-reward__includes li {
+      font-size: .75rem;
+      color: var(--ks-muted);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 3px 0;
+    }
+
+    .ks-reward__includes li::before {
+      content: '✓';
+      color: var(--ks-green);
+      font-weight: 700;
+    }
+
+    .ks-reward__avail {
+      font-size: .7rem;
+      color: var(--ks-muted);
+      display: flex;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px solid var(--ks-border);
+    }
+
+    .ks-reward__avail strong {
+      color: #fff;
+    }
+
+    .ks-reward__avail .sold-out {
+      color: #ff5555;
+    }
+
+    .ks-reward__custom {
+      background: rgba(168, 85, 247, .1);
+      border: 1px solid rgba(168, 85, 247, .35);
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-size: .75rem;
+      color: #c084fc;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    /* Creator box */
+    .ks-creator-box {
+      background: var(--ks-surface);
+      border: 1px solid var(--ks-border);
+      border-radius: var(--radius);
+      padding: 18px;
+      margin-top: 20px;
+    }
+
+    .ks-creator-box__label {
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--ks-muted);
+      margin-bottom: 12px;
+    }
+
+    .ks-creator-box__inner {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .ks-creator-box__avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #ff8c00);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .ks-creator-box__name {
+      font-size: .88rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .ks-creator-box__sub {
+      font-size: .73rem;
+      color: var(--ks-muted);
+      margin-top: 2px;
+    }
+
+    .ks-creator-box__contact {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 12px;
+      font-size: .78rem;
+      color: var(--ks-green);
+      border: 1px solid rgba(5, 206, 120, .3);
+      border-radius: 4px;
+      padding: 8px;
+      transition: border-color var(--tr), background var(--tr);
+    }
+
+    .ks-creator-box__contact:hover {
+      background: rgba(5, 206, 120, .07);
+      text-decoration: none !important;
+    }
+
+    /* Shares row */
+    .ks-share-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .ks-share-btn {
+      flex: 1;
+      padding: 8px;
+      border-radius: 4px;
+      background: var(--ks-surface);
+      border: 1px solid var(--ks-border);
+      font-size: .72rem;
+      color: var(--ks-muted);
+      text-align: center;
+      cursor: pointer;
+      transition: border-color var(--tr), color var(--tr);
+    }
+
+    .ks-share-btn:hover {
+      border-color: var(--ks-green);
+      color: var(--ks-green);
+    }
+
+    /* Campaign tabs nav */
+    .ks-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--ks-border);
+      margin-bottom: 36px;
+    }
+
+    .ks-tab {
+      padding: 12px 20px;
+      font-size: .83rem;
+      font-weight: 600;
+      color: var(--ks-muted);
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color var(--tr), border-color var(--tr);
+    }
+
+    .ks-tab.active,
+    .ks-tab:hover {
+      color: #fff;
+      border-bottom-color: var(--ks-green);
+    }
+
+    /* Specs comparison table */
+    .ks-table-wrap {
+      overflow-x: auto;
+      margin: 24px 0;
+    }
+
+    .ks-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--ks-border);
+      font-size: .82rem;
+    }
+
+    .ks-table thead th {
+      background: rgba(255, 255, 255, .04);
+      padding: 12px 16px;
+      text-align: left;
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      border-bottom: 1px solid var(--ks-border);
+    }
+
+    .ks-table tbody td {
+      padding: 11px 16px;
+      color: var(--ks-muted);
+      border-bottom: 1px solid rgba(255, 255, 255, .04);
+    }
+
+    .ks-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .ks-table tbody tr:hover td {
+      background: rgba(255, 255, 255, .02);
+    }
+
+    .ks-table tbody td:first-child {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    /* ─── Footer ─── */
+    .ks-footer {
+      background: #111;
+      border-top: 1px solid var(--ks-border);
+      padding: 36px 24px;
+      text-align: center;
+    }
+
+    .ks-footer p {
+      font-size: .76rem;
+      color: var(--ks-muted);
+      line-height: 1.7;
+    }
+
+    .ks-footer a {
+      color: var(--ks-green);
+    }
+
+    .ks-footer__logo {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--ks-green);
+      letter-spacing: .5px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    /* ─── Animated entry ─── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-in {
+      animation: fadeUp .55s ease both;
+    }
+
+    .animate-in:nth-child(2) {
+      animation-delay: .1s;
+    }
+
+    .animate-in:nth-child(3) {
+      animation-delay: .2s;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 820px) {
+      .ks-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .ks-sidebar {
+        position: static;
+      }
+
+      .ks-feat-grid,
+      .ks-img-row {
+        grid-template-columns: 1fr;
+      }
+
+      .ks-details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ks-prop-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .ks-hero-vid video {
+        height: 260px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .ks-prop-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ks-funding__stats {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Kickstarter Top Bar ── -->
+  <nav class="ks-topbar" id="ks-topbar">
+    <div class="ks-topbar__logo">kick<span>starter</span></div>
+    <div class="ks-topbar__links">
+      <a href="#">Discover</a>
+      <a href="#">Arts</a>
+      <a href="#" class="ks-topbar__cta">Back This Project</a>
+    </div>
+  </nav>
+
+  <!-- ── Project Header ── -->
+  <header class="proj-header">
+    <div class="proj-header__inner animate-in">
+      <p class="proj-header__category">🎪 Design &amp; Tech · Flow Arts · Canada</p>
+      <h1 class="proj-header__title">
+        Petal Flow Labs — <span>Founders Edition</span><br>Motion-Reactive LED Flow Props
+      </h1>
+      <p class="proj-header__blurb">
+        Hand-built LED staffs &amp; swords with mechanical blooming petals that react to how you move — speed, spin,
+        tilt, and beat. A small founders run. Custom specs welcome.
+      </p>
+      <div class="proj-header__meta">
+        <span class="badge-founders">Founder's Edition · Micro-Batch</span>
+        <span>🇨🇦 Hand-built in Canada</span>
+        <span>📦 10 – 18 Weeks (approx. 2.5 to 4.5 months)</span>
+        <span>🔋 10+ Hour Battery</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Main Two-Column Layout ── -->
+  <div class="ks-layout">
+
+    <!-- ──────── LEFT: Campaign Story ──────── -->
+    <main class="ks-main">
+
+      <!-- Campaign Tabs -->
+      <div class="ks-tabs">
+        <div class="ks-tab active">Campaign</div>
+        <div class="ks-tab">Updates <span
+            style="background:rgba(5,206,120,.2);color:var(--ks-green);padding:1px 7px;border-radius:100px;font-size:.7rem;margin-left:5px;">0</span>
+        </div>
+        <div class="ks-tab">Comments</div>
+        <div class="ks-tab">FAQ</div>
+      </div>
+
+      <!-- Hero Video -->
+      <div class="ks-hero-vid">
+        <video
+          src="https://res.cloudinary.com/dfz5m8dzp/video/upload/q_auto,f_auto,vc_auto/v1773530159/slowhero_srg5em.mp4"
+          autoplay muted loop playsinline
+          poster="https://res.cloudinary.com/dfz5m8dzp/image/upload/q_auto,f_auto/v1/field">
+        </video>
+        <div class="ks-hero-vid__overlay"></div>
+        <span class="ks-hero-vid__caption">Petal Staff V1 — two years of real-world use</span>
+      </div>
+
+      <!-- === CAMPAIGN BODY === -->
+      <div class="ks-body">
+
+        <!-- 1. THE PITCH -->
+        <h2>What is Petal Flow Labs?</h2>
+
+        <div class="ks-callout ks-callout--amber">
+          <p>
+            "Two years of flow. One big missing piece. About 140 of them, actually — 140 more LEDs. This is the next
+            evolution of the Petal Staff, and the birth of the Petal Flow Sword."
+          </p>
+        </div>
+
+        <p>
+          Petal Flow Labs builds <strong>motion-reactive LED flow props</strong> with a twist — mechanical petals that
+          physically open and close based on your movement. No buttons, no presets. Just spin faster and they bloom.
+          Slow down and they fold back in.
+        </p>
+        <p>
+          The original Petal Staff has been in active use for over two years — at festivals, parks, and late-night
+          sessions — through drops, contact abuse, and everything in between. It works. Now it's time to do it properly.
+        </p>
+        <p>
+          This <strong>Founders Edition</strong> is a small, carefully managed batch. No factory minimums, no
+          compromises. Every prop is hand-assembled — I balance and test each one personally. Because volume is low, you
+          get something rare: <strong>a say in what you receive.</strong>
+        </p>
+
+        <div class="ks-img-row">
+          <div class="ks-img-block">
+            <video src="https://res.cloudinary.com/dfz5m8dzp/video/upload/q_auto,f_auto,vc_auto/v1773620519/VIDEO-00.09.38.628-00.09.55.010-seg27_qvsdoz.mp4"
+              autoplay muted loop playsinline></video>
+            <div class="ks-img-block--caption">Original Petal Staff — early prototype sessions</div>
+          </div>
+          <div class="ks-img-block">
+            <video src="https://res.cloudinary.com/dfz5m8dzp/video/upload/q_auto,f_auto,vc_auto/v1/Gardenparty" autoplay
+              muted loop playsinline></video>
+            <div class="ks-img-block--caption">The petal bloom in action at a garden party flow session</div>
+          </div>
+        </div>
+
+        <hr class="ks-hr" />
+
+        <!-- 2. HOW IT WORKS -->
+        <h2>How it Works — The Technology</h2>
+
+        <p>
+          Every Petal Flow prop runs on a <strong>custom-designed PCB</strong> at its core. Inside the capsule: a 3-axis
+          accelerometer, a gyroscope, a microphone, Bluetooth, and a microcontroller — all talking to the LED strip in
+          real time.
+        </p>
+
+        <div class="ks-feat-grid">
+          <div class="ks-feat-card">
+            <div class="ks-feat-card__icon">🌸</div>
+            <div class="ks-feat-card__title">Mechanical Petal Bloom</div>
+            <div class="ks-feat-card__desc">Petals open with centrifugal force as you spin, close when you slow down. No
+              buttons — just movement. Works in every style from contact to freestyle flow.</div>
+          </div>
+          <div class="ks-feat-card">
+            <div class="ks-feat-card__icon">📡</div>
+            <div class="ks-feat-card__title">Real-Time Motion Tracking</div>
+            <div class="ks-feat-card__desc">The gyro + accelerometer reads your exact speed, tilt, and rotation. LEDs
+              respond to <em>what you're actually doing</em>, not a pre-programmed sequence. The available detection for special effects include roll, stab, orientation, swing, and stop detection.</div>
+          </div>
+          <div class="ks-feat-card">
+            <div class="ks-feat-card__icon">🎵</div>
+            <div class="ks-feat-card__title">Sound Reactive Mode</div>
+            <div class="ks-feat-card__desc">Built-in mic syncs the LEDs to the music around you. Beat drops trigger
+              full-strip flashes and reactive waves. Dial sensitivity from the Bluetooth app.</div>
+          </div>
+          <div class="ks-feat-card">
+            <div class="ks-feat-card__icon">📱</div>
+            <div class="ks-feat-card__title">Bluetooth App Control</div>
+            <div class="ks-feat-card__desc">Customize color palettes, sensitivity, and switch between 32+ movement &amp;
+              color modes wirelessly. App connects in seconds, no account needed.</div>
+          </div>
+        </div>
+
+        <div class="ks-img-block">
+          <video
+            src="https://res.cloudinary.com/dfz5m8dzp/video/upload/q_auto,f_auto,vc_auto/v1774726210/lv_0_20260327223635_1_eaifeq.mp4"
+            autoplay muted loop playsinline>
+          </video>
+          <div class="ks-img-block--caption">Motion-reactive LED strip responding to live movement — gyro tracking in
+            action</div>
+        </div>
+
+        <h3>32 Movement &amp; Color Modes</h3>
+        <p>
+          The firmware currently ships with <strong>32 special modes</strong> — from martial arts combat sequences and
+          fluid contact rolls to full beat-synced music modes. These include:
+        </p>
+        <ul>
+          <li><strong>Swing detection</strong> — bright flares on impact and directional strikes</li>
+          <li><strong>Roll &amp; spin modes</strong> — rainbow rushes and lightning trails triggered by rotation speed
+          </li>
+          <li><strong>POV mode</strong> — pulsing sine-wave patterns that come alive during fast helicopter spins</li>
+          <li><strong>Music reactive</strong> — bass, mid, treble, and beat detection all mapped to distinct LED
+            behaviours</li>
+          <li><strong>Idle breathing</strong> — a smooth wave animation when you're at rest</li>
+        </ul>
+
+        <div class="ks-callout">
+          <p>🎁 <strong>First 5 staff backers</strong> get a fully custom LED mode built with them directly — your
+            colours, your movement triggers, your flow.</p>
+        </div>
+
+        <hr class="ks-hr" />
+
+        <!-- 3. THE PRODUCTS -->
+        <h2>The Props — Choose Your Discipline</h2>
+
+        <p>
+          One motion-tracking capsule. Two prop types. Multiple configurations. Same blooming petals. Same reactive
+          chip.
+        </p>
+
+        <!-- Staff -->
+        <h3>🌸 Petal Staff V2</h3>
+        <p>
+          The evolved version of the original. Every lesson from two years of hard use has been applied: silicone-molded
+          petals (no more cracking), a reinforced PCB LED connection, a 3-piece collapsible design for easy transport,
+          and a full-length high-density LED strip from tip to tip.
+        </p>
+
+        <div class="ks-img-block">
+          <video
+            src="https://res.cloudinary.com/dfz5m8dzp/video/upload/q_auto,f_auto,vc_auto/v1773588232/CADStaff_Capsule_ji1dbw.mp4"
+            autoplay muted loop playsinline>
+          </video>
+          <div class="ks-img-block--caption">Petal Staff V2 — 3-piece capsule assembly CAD render</div>
+        </div>
+
+        <ul>
+          <li><strong>3-piece collapsible design</strong> — sensor on each end, independent battery placement, perfectly
+            balanced</li>
+          <li><strong>High-grade polycarbonate tubes</strong> — impact resistant with long overlaps to minimise flex
+          </li>
+          <li><strong>Full-size 18650 battery</strong> — 10+ hours of flow on a charge, USB-C recharge</li>
+          <li><strong>Silicone-molded petals</strong> — survives contact staff abuse, drops, and poi life</li>
+          <li><strong>Hybrid Launch Options:</strong> Full-Spectrum Stage Dragon, Performance Hybrid, or Agility Hybrid.
+          </li>
+        </ul>
+
+        <div style="text-align: center; margin: 24px 0 32px;">
+          <img
+            src="https://res.cloudinary.com/dfz5m8dzp/image/upload/v1776974427/staff_gx0a9q.jpg"
+            alt="Petal Staff V2 — dimensions and measurements diagram"
+            style="width: 100%; max-width: 680px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.4);" />
+          <p style="font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 10px;">Petal Staff V2 — dimensions &amp; layout</p>
+        </div>
+
+        <div class="ks-prop-grid">
+          <div class="ks-prop-card">
+            <div class="ks-prop-card__vid">
+              <video src="https://res.cloudinary.com/dfz5m8dzp/video/upload/q_auto,f_auto,vc_auto/v1773206912/CcutPetalstaff2_d4sgeo.mp4" autoplay
+                muted loop playsinline></video>
+            </div>
+            <div class="ks-prop-card__body">
+              <p class="ks-prop-card__label">✨ Full LED + Full Petals</p>
+              <p class="ks-prop-card__name">The Full-Spectrum Stage Dragon</p>
+              <p class="ks-prop-card__price">$745 CAD (~$551 USD) <small>(Retail $970 CAD (~$718 USD))</small></p>
+            </div>
+          </div>
+          <div class="ks-prop-card">
+            <div class="ks-prop-card__vid">
+              <video
+                src="https://res.cloudinary.com/dfz5m8dzp/video/upload/q_auto,f_auto,vc_auto/v1773511834/CcutPetalstaff1.mp4"
+                autoplay muted loop playsinline></video>
+            </div>
+            <div class="ks-prop-card__body">
+              <p class="ks-prop-card__label">⚡ Half LED + Full Petals</p>
+              <p class="ks-prop-card__name">The Performance Hybrid</p>
+              <div style="background: rgba(99,200,255,0.1); border: 1px solid rgba(99,200,255,0.3); border-radius: 6px; padding: 10px; margin: 12px 0;">
+                <p style="font-size: 0.85rem; color: #fff; margin: 0; line-height: 1.4;">
+                  <strong style="color: #63c8ff;">✨ New Option:</strong> This project originally started as full LED only, but half-staffs are often more popular. So I'm offering this tier with large petals for heavy drag, paired with a <strong>solid carbon fiber "Goat Grip" center</strong> instead of full LEDs for ultimate technical contact.
+                </p>
+              </div>
+              <p class="ks-prop-card__price">$695 CAD (~$514 USD) <small>(Retail $905 CAD (~$670 USD))</small></p>
+            </div>
+          </div>
+          <div class="ks-prop-card">
+            <div class="ks-prop-card__vid">
+              <video src="https://res.cloudinary.com/dfz5m8dzp/video/upload/v1775347216/20260401_150008_1_mbzwhf.mp4"
+                autoplay muted loop playsinline></video>
+            </div>
+            <div class="ks-prop-card__body">
+              <p class="ks-prop-card__label">⚡ Half LED + Compact Petals</p>
+              <p class="ks-prop-card__name">The Agility Hybrid</p>
+              <img
+                src="https://res.cloudinary.com/dfz5m8dzp/image/upload/v1773204469/doubles_gis8mg.gif"
+                alt="Compact petal engineering CAD drawing"
+                style="width: 100%; border-radius: 6px; margin: 8px 0; opacity: 0.85; border: 1px solid rgba(255,255,255,0.08);" />
+              <p class="ks-prop-card__price">$675 CAD (~$500 USD) <small>(Retail $880 CAD (~$651 USD))</small></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ks-callout ks-callout--amber">
+          <p>🚀 <strong>Early Bird Special:</strong> The first 3 units of any staff tier are $100 CAD (~$74 USD) OFF the listed
+            Kickstarter prices.</p>
+        </div>
+
+        <!-- Sword -->
+        <h3>🗡️ Petal Flow Sword</h3>
+        <p>
+          The same motion-tracking capsule that powers the staff slides directly into the hilt of the Flow Sword. The
+          result is a high-grade polycarbonate blade housing a double-sided LED strip — stiff, sturdy, and shockingly
+          impact resistant.
+        </p>
+
+        <div class="ks-img-row">
+          <div class="ks-img-block">
+            <video
+              src="https://res.cloudinary.com/dfz5m8dzp/video/upload/q_auto,f_auto,vc_auto/v1773620503/lv_0_20240808194805_ew0z8b.mp4"
+              autoplay muted loop playsinline>
+            </video>
+            <div class="ks-img-block--caption">V1 Prototype — Original LED sword (no motion chip)</div>
+          </div>
+          <div class="ks-img-block">
+            <video
+              src="https://res.cloudinary.com/dfz5m8dzp/video/upload/q_auto,f_auto,vc_auto/v1774118889/lv_0_20260320000438_lgnf32.mp4"
+              autoplay muted loop playsinline>
+            </video>
+            <div class="ks-img-block--caption">The Upgrade — Full motion tracking and reactive bloom</div>
+          </div>
+        </div>
+
+        <ul>
+          <li><strong>Blade:</strong> 80 cm · <strong>Hilt:</strong> 50 cm — balanced for contact rolls and sweeping
+            momentum</li>
+          <li>Double-sided LED strip inside the blade — maximum visibility from all angles</li>
+          <li>Petal bloom at the hilt adds balance control for fishtails and cushions drops</li>
+          <li>Same motion-reactive firmware — swing detection, spin modes, music reactive</li>
+        </ul>
+
+        <div style="text-align: center; margin: 24px 0 32px;">
+          <img
+            src="https://res.cloudinary.com/dfz5m8dzp/image/upload/v1776974427/sword_wp6iii.jpg"
+            alt="Petal Flow Sword — dimensions and measurements diagram"
+            style="width: 100%; max-width: 680px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.4);" />
+          <p style="font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 10px;">Petal Flow Sword — dimensions &amp; layout</p>
+        </div>
+
+        <div class="ks-prop-grid">
+          <div class="ks-prop-card">
+            <div class="ks-prop-card__vid">
+              <video
+                src="https://res.cloudinary.com/dfz5m8dzp/video/upload/q_auto,f_auto,vc_auto/v1775354013/0404_1_iczp0l_3fa58b.mp4"
+                autoplay muted loop playsinline></video>
+            </div>
+            <div class="ks-prop-card__body">
+              <p class="ks-prop-card__label">🗡️ Contact Sword</p>
+              <p class="ks-prop-card__name">Full-Size Contact Sword</p>
+              <p class="ks-prop-card__price">$450 CAD (~$333 USD) <small>(Retail $585 CAD (~$433 USD))</small></p>
+            </div>
+          </div>
+          <div class="ks-prop-card">
+            <div class="ks-prop-card__vid">
+              <video
+                src="https://res.cloudinary.com/dfz5m8dzp/video/upload/q_auto,f_auto,vc_auto/v1774118889/lv_0_20260320000438_lgnf32.mp4"
+                autoplay muted loop playsinline></video>
+            </div>
+            <div class="ks-prop-card__body">
+              <p class="ks-prop-card__label">⚔️ Doubles</p>
+              <p class="ks-prop-card__name">Mini Sword Pair</p>
+              <p class="ks-prop-card__price">$650 CAD (~$481 USD) <small>(Retail $845 CAD (~$625 USD))</small></p>
+            </div>
+          </div>
+          <div class="ks-prop-card">
+            <div class="ks-prop-card__vid">
+              <img src="https://res.cloudinary.com/dfz5m8dzp/image/upload/v1778196469/juggling_swords_bkjk1m.png" alt="Juggling Swords Triples" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
+            </div>
+            <div class="ks-prop-card__body">
+              <p class="ks-prop-card__label" style="color:#c084fc;">🎪 Juggling Tiers</p>
+              <p class="ks-prop-card__name">Juggling Triples</p>
+              <p class="ks-prop-card__price">$850 CAD (~$629 USD) <small>(Retail $1,105 CAD (~$818 USD))</small></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ks-callout ks-callout--amber">
+          <p>🚀 <strong>Early Bird Special:</strong> The first 2 units of any sword tier are $100 CAD (~$74 USD) OFF the listed Kickstarter prices.</p>
+        </div>
+
+        <hr class="ks-hr" />
+
+        <!-- 4. SPECS TABLE -->
+        <h2>Hybrid Staff Feature Comparison</h2>
+        <p>All props include: custom PCB with 3-axis IMU (accelerometer + gyro), built-in microphone, Bluetooth app
+          control, USB-C recharge, molded silicone petals, and impact-resistant materials.</p>
+
+        <div class="ks-table-wrap">
+          <table class="ks-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Stage Dragon</th>
+                <th>Performance Hybrid</th>
+                <th>Agility Hybrid</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Petal Type</td>
+                <td>Fullsize</td>
+                <td>Fullsize</td>
+                <td>Compact</td>
+              </tr>
+              <tr>
+                <td>LED Length</td>
+                <td>Full Length</td>
+                <td>Half Length</td>
+                <td>Half Length</td>
+              </tr>
+              <tr>
+                <td>Center Grip</td>
+                <td>Polycarbonate</td>
+                <td>Carbon Fiber</td>
+                <td>Carbon Fiber</td>
+              </tr>
+              <tr>
+                <td>Primary Use</td>
+                <td>Stage Presence</td>
+                <td>Tech-Dragon</td>
+                <td>Doubles/Speed</td>
+              </tr>
+              <tr>
+                <td>Kickstarter Price</td>
+                <td><strong style="color:var(--accent)">$745 CAD (~$551 USD)</strong></td>
+                <td><strong style="color:var(--accent)">$695 CAD (~$514 USD)</strong></td>
+                <td><strong style="color:var(--accent)">$675 CAD (~$500 USD)</strong></td>
+              </tr>
+              <tr>
+                <td>Future Retail Est.</td>
+                <td><strike style="color:var(--ks-muted)">$970 CAD (~$718 USD)</strike></td>
+                <td><strike style="color:var(--ks-muted)">$905 CAD (~$670 USD)</strike></td>
+                <td><strike style="color:var(--ks-muted)">$880 CAD (~$651 USD)</strike></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Sword & Juggling Tiers</h3>
+        <div class="ks-table-wrap">
+          <table class="ks-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>KS Price</th>
+                <th>Retail Price (Est.)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Full-Size Contact Sword</td>
+                <td><strong style="color:var(--accent)">$450 CAD (~$333 USD)</strong></td>
+                <td><strike style="color:var(--ks-muted)">$585 CAD (~$433 USD)</strike></td>
+              </tr>
+              <tr>
+                <td>Mini Sword Pair</td>
+                <td><strong style="color:var(--accent)">$650 CAD (~$481 USD)</strong></td>
+                <td><strike style="color:var(--ks-muted)">$845 CAD (~$625 USD)</strike></td>
+              </tr>
+              <tr>
+                <td>Juggling Triples</td>
+                <td><strong style="color:var(--accent)">$850 CAD (~$629 USD)</strong></td>
+                <td><strike style="color:var(--ks-muted)">$1,105 CAD (~$818 USD)</strike></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="ks-hr" />
+
+        <!-- 5. WHY KICKSTARTER -->
+        <h2>Why Kickstarter — Why Now?</h2>
+
+        <p>
+          Years of self-funded prototyping went into getting here. The parts, the test prints, the iterations — that's
+          already spent. What the campaign funds is the production run: proper PCB fabrication, silicone mold tooling,
+          and the materials to build this founder's batch the way it deserves to be built.
+        </p>
+        <p>
+          Backers aren't funding an experiment. A Kickstarter campaign makes this possible without over-committing to
+          volume I can't deliver. The goal of <strong>$3,500 CAD (~$2,590 USD)</strong> covers these upfront costs.
+        </p>
+
+        <div class="ks-callout ks-callout--amber">
+          <p>
+            Back this and you're getting ~30% off future retail, a hand-built prop tuned to you personally, and a spot
+            in a project that's moving — not vaporware. I've been building long enough to know exactly what this needs.
+          </p>
+        </div>
+
+        <p>
+          Because this batch is <strong>low volume by design</strong>, I'll be in direct contact with every backer. You
+          want a different length? Different weight distribution? A specific colour palette baked into your firmware?
+          This is the run to do that.
+        </p>
+        <p>
+          This is an open cooperation. While there are no plans to make the props user-programmable, the LED effects and firmware will be continually updated. Your feedback will directly mould how these props evolve into something truly great.
+        </p>
+
+        <hr class="ks-hr" />
+
+        <!-- 6. TIMELINE -->
+        <h2>Timeline — 10 – 18 Weeks (approx. 2.5 to 4.5 months)</h2>
+
+        <div class="ks-timeline">
+          <div class="ks-timeline__item">
+            <div class="ks-timeline__dot">1</div>
+            <div class="ks-timeline__content">
+              <h4>Phase 1: PCB Manufacturing &amp; Component Sourcing — 4 – 6 Weeks</h4>
+              <p>Sourcing components for the custom 140-LED boards, followed by precision PCB fabrication and surface-mount (SMT) assembly.</p>
+            </div>
+          </div>
+          <div class="ks-timeline__item">
+            <div class="ks-timeline__dot">2</div>
+            <div class="ks-timeline__content">
+              <h4>Phase 2: Printing &amp; Custom Molding — 2 – 4 Weeks</h4>
+              <p>Manufacturing the durable, silicone-molded outer petals and high-tolerance 3D-printed internal structural housings.</p>
+            </div>
+          </div>
+          <div class="ks-timeline__item">
+            <div class="ks-timeline__dot">3</div>
+            <div class="ks-timeline__content">
+              <h4>Phase 3: Final Prop Assembly — 2 – 4 Weeks</h4>
+              <p>Hand-assembling the unit heads, securing internal electronics, and finalizing the end caps for complete structural integrity.</p>
+            </div>
+          </div>
+          <div class="ks-timeline__item">
+            <div class="ks-timeline__dot">4</div>
+            <div class="ks-timeline__content">
+              <h4>Phase 4: Testing, Calibration &amp; QA — 2 – 4 Weeks</h4>
+              <p>Battery soak testing, motion sensor/IMU calibration, and final engineering checks to guarantee field readiness.</p>
+            </div>
+          </div>
+          <div class="ks-timeline__item">
+            <div class="ks-timeline__dot">✈</div>
+            <div class="ks-timeline__content">
+              <h4>Ship</h4>
+              <p>Props ship directly from Canada. Backers receive tracking, direct contact throughout.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin: 20px 0; padding: 20px; background: rgba(245,166,35,0.03); border: 1px solid rgba(245,166,35,0.15); border-radius: 12px;">
+          <p style="font-size: 0.95rem; color: var(--white); margin-bottom: 8px; font-weight: 600;">Total Estimated Production Window: <span style="color: var(--accent);">10 – 18 weeks (approx. 2.5 to 4.5 months)</span></p>
+          <p style="font-size: 0.8rem; color: rgba(255,255,255,0.7); line-height: 1.5; margin: 0;">
+            ⚠️ <strong>Please Note:</strong> These are highly conservative estimates designed to build in a significant buffer for any unexpected supply chain or manufacturing delays. Our priority is delivering a flawless, rugged performance tool, and this timeline ensures we have ample room to maintain strict quality control at any backer volume.
+          </p>
+        </div>
+
+        <hr class="ks-hr" />
+
+        <!-- 7. DEVELOPMENT DIARY / RISKS -->
+        <h2>Development Diary — The Thought Process</h2>
+
+        <p>
+          Transparency is core to this project. Building a motion-blooming set of flow props isn't simple. Here is a
+          look directly into my development diary — the real engineering trade-offs I've navigated, the iterations along
+          the way, and the work-in-progress items I want backers to understand:
+        </p>
+
+        <div class="ks-details-grid">
+          <div class="ks-detail-card">
+            <h4>🔋 Battery Size</h4>
+            <p>Final battery spec isn't locked. Current builds exceed 12 hours. Moving to a two-battery design allows
+              smaller cells while keeping life identical — we're powering fewer LEDs per board. Many considerations need to be weighed so target life will be a range of 6 to 12 hours.</p>
+          </div>
+          <div class="ks-detail-card">
+            <h4>🛡️ Staff Rigidity</h4>
+            <p>Polycarbonate has natural flex. Extra-long tube overlaps keep it minimal. Carbon fibre centre section gives extra stiffness while losing the leds in the middle.</p>
+          </div>
+          <div class="ks-detail-card">
+            <h4>⚡ Electronics</h4>
+            <p>The capsule has gone through rigorous impact tests without an issue. The biggest issue will be fixed with a more rigid attachment method for the led Strip.</p>
+          </div>
+          <div class="ks-detail-card">
+            <h4>🎨 Mode Readiness</h4>
+            <p>Firmware is functional but not final. All motion detection is working well and each mode needs optimisation and per-prop sensor calibration. This will be performed last before shipping.</p>
+          </div>
+        </div>
+
+        <div class="ks-callout">
+          <p>These are the concerns I've found and I'm sharing them with you. No hidden issues, no glossy promises. If
+            you have any other questions at all — please ask me directly.</p>
+        </div>
+
+        <hr class="ks-hr" />
+
+        <!-- 8. ABOUT THE CREATOR -->
+        <h2>About the Creator</h2>
+
+        <div class="ks-bio">
+          <div class="ks-bio__avatar">🌸</div>
+          <div class="ks-bio__text">
+            <h4>Petal Flow Labs — Solo Founder &amp; Builder</h4>
+            <p>
+              I've been a flow artist for five years. I picked up poi and contact staff in the mountains of Pai and on the beaches of Koh Phangan, then spent years developing my style on the streets and stages of Prague. I gravitate toward a dance-first approach — props that move with the body rather than around it.
+            </p>
+          </div>
+        </div>
+
+        <p>
+          I've always made my own props — starting with fire, then moving into LED for the versatility it opens up. The petals started as a purely visual idea. What I didn't expect was how much they'd change the feel of the flow itself — the way they behave mid-spin opened up a whole new dimension of movement. Suddenly I had options: lean into the softness the petals bring, or snap back into a tighter technical style. That ability to switch between modes mid-flow is something I hadn't experienced with any other prop, and it's what kept me developing them across poi, staff, and swords for the past two years.
+        </p>
+        <p>
+          The staff has come the furthest — two years of feedback, iterations, and late nights with prototypes. This is a solo project at its core, shaped along the way by generous technical input from friends and professionals who believed in it. This Kickstarter is where that work lands.
+        </p>
+
+        <hr class="ks-hr" />
+
+        <!-- 9. FAQ -->
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Can I customise the length or weight?</h3>
+        <p>Yes — this is one of the perks of a low-volume founder's run. I've tested the specs I think work best, but
+          your flow is your flow. Length and weight bias can be adjusted within reason. Message me before the campaign
+          ends.</p>
+
+        <h3>What are the Juggling Triples?</h3>
+        <p>Club-sized swords tuned to juggling — speed sensing, orientation detection, pattern inputs. A 3-piece set
+          designed for professional flow jugglers.</p>
+
+        <h3>Do the props work without the app?</h3>
+        <p>Yes. All modes run standalone. The Bluetooth app lets you switch modes and tweak settings, but the prop works
+          out of the box from the moment you pick it up.</p>
+
+        <h3>What about shipping outside Canada?</h3>
+        <p>International shipping is available. Costs vary by region and will be confirmed with each backer
+          individually. I'll cover any import/duties surprises where I reasonably can.</p>
+
+        <h3>When will the Petal Poi ship?</h3>
+        <p>Poi is still in final prototyping. It requires more refinement and testing before it can ship. Staff and
+          Sword ship first from this batch — Poi will follow in a subsequent wave once it meets the same quality
+          standard.</p>
+
+      </div>
+      <!-- end .ks-body -->
+
+    </main>
+    <!-- end .ks-main -->
+
+    <!-- ──────── RIGHT: Sidebar ──────── -->
+    <aside class="ks-sidebar">
+
+      <!-- Funding Block -->
+      <div class="ks-funding" id="ks-funding">
+        <div class="ks-funding__amount" id="fundingAmount">$0</div>
+        <div class="ks-funding__goal">pledged of <strong style="color:#fff;">$3,500 CAD (~$2,590 USD)</strong> goal</div>
+        <div class="ks-funding__bar-wrap">
+          <div class="ks-funding__bar" id="fundingBar"></div>
+        </div>
+        <div class="ks-funding__stats">
+          <div class="ks-stat">
+            <div class="ks-stat__num" id="backerCount">0</div>
+            <div class="ks-stat__label">Backers</div>
+          </div>
+          <div class="ks-stat">
+            <div class="ks-stat__num">29</div>
+            <div class="ks-stat__label">Days Left</div>
+          </div>
+          <div class="ks-stat">
+            <div class="ks-stat__num">All</div>
+            <div class="ks-stat__label">or Nothing</div>
+          </div>
+        </div>
+
+        <a href="#" class="ks-back-btn" id="ks-back-btn">Back This Project</a>
+        <button class="ks-remind-btn">🔔 Remind me</button>
+
+        <div class="ks-share-row">
+          <div class="ks-share-btn">Share</div>
+          <div class="ks-share-btn">Tweet</div>
+          <div class="ks-share-btn">Copy Link</div>
+        </div>
+
+        <p class="ks-funding__note">This project will only be funded if it reaches its goal by the deadline.
+          All-or-nothing.</p>
+      </div>
+
+      <!-- Reward Tiers -->
+      <p class="ks-rewards-label">— Pledge Rewards —</p>
+
+      <!-- Tier 1: Supporter -->
+      <div class="ks-reward">
+        <div class="ks-reward__amount">$50 CAD (~$37 USD)</div>
+        <div class="ks-reward__title">🌿 Founder Supporter</div>
+        <div class="ks-reward__desc">Help make this happen. No prop, but you'll be part of the story.</div>
+        <ul class="ks-reward__includes">
+          <li>Behind-the-scenes build updates</li>
+          <li>Early access to future product launches</li>
+          <li>Name in the credits (if you want it)</li>
+        </ul>
+        <div class="ks-reward__avail">
+          <span>Unlimited spots</span>
+          <span><strong>0</strong> backers</span>
+        </div>
+      </div>
+
+      <!-- Early Bird Tiers -->
+      <p class="ks-rewards-label">— 🚀 Early Bird Specials —</p>
+      <div class="ks-reward ks-reward--featured">
+        <div class="ks-reward__amount">$645 CAD (~$477 USD) <strike>$745 CAD (~$551 USD)</strike></div>
+        <div class="ks-reward__title">✨ EARLY BIRD: The Full-Spectrum Stage Dragon</div>
+        <div class="ks-reward__desc">Maximum visual drag and illumination. The fullsize petals provide the ultimate
+          "slow-flow" governor for the entire 150cm lit body.</div>
+        <div class="ks-reward__avail">
+          <span>3 of 3 remaining</span>
+          <span><strong>0</strong> backers</span>
+        </div>
+      </div>
+      <div class="ks-reward ks-reward--featured">
+        <div class="ks-reward__amount">$595 CAD (~$440 USD) <strike>$695 CAD (~$514 USD)</strike></div>
+        <div class="ks-reward__title">⚡ EARLY BIRD: The Performance Hybrid</div>
+        <div class="ks-reward__desc">Large petals for heavy drag and dragon-style stability, but with a Carbon Fiber
+          "Goat Grip" center for technical contact.</div>
+        <div class="ks-reward__avail">
+          <span>3 of 3 remaining</span>
+          <span><strong>0</strong> backers</span>
+        </div>
+      </div>
+      <div class="ks-reward ks-reward--featured">
+        <div class="ks-reward__amount">$575 CAD (~$426 USD) <strike>$675 CAD (~$500 USD)</strike></div>
+        <div class="ks-reward__title">⚡ EARLY BIRD: The Agility Hybrid</div>
+        <div class="ks-reward__desc">Small petals for reduced drag and high-speed agility. 100cm length optimized for
+          doubles.</div>
+        <div class="ks-reward__avail">
+          <span>3 of 3 remaining</span>
+          <span><strong>0</strong> backers</span>
+        </div>
+      </div>
+
+      <p class="ks-rewards-label">— 🌸 Hybrid Staff Tiers —</p>
+      <div class="ks-reward">
+        <div class="ks-reward__amount">$745 CAD (~$551 USD) <strike>$970 CAD (~$718 USD)</strike></div>
+        <div class="ks-reward__title">✨ The Full-Spectrum Stage Dragon</div>
+        <div class="ks-reward__desc">Maximum visual drag and illumination. The fullsize petals provide the ultimate
+          "slow-flow" governor for the entire 150cm lit body.</div>
+        <div class="ks-reward__avail">
+          <span>Unlimited</span>
+          <span><strong>0</strong> backers</span>
+        </div>
+      </div>
+      <div class="ks-reward">
+        <div class="ks-reward__amount">$695 CAD (~$514 USD) <strike>$905 CAD (~$670 USD)</strike></div>
+        <div class="ks-reward__title">⚡ The Performance Hybrid</div>
+        <div class="ks-reward__desc">Large petals for heavy drag and dragon-style stability, but with a Carbon Fiber
+          "Goat Grip" center for technical contact.</div>
+        <div class="ks-reward__avail">
+          <span>Unlimited</span>
+          <span><strong>0</strong> backers</span>
+        </div>
+      </div>
+      <div class="ks-reward">
+        <div class="ks-reward__amount">$675 CAD (~$500 USD) <strike>$880 CAD (~$651 USD)</strike></div>
+        <div class="ks-reward__title">⚡ The Agility Hybrid</div>
+        <div class="ks-reward__desc">Small petals for reduced drag and high-speed agility. 100cm length optimized for
+          doubles.</div>
+        <div class="ks-reward__avail">
+          <span>Unlimited</span>
+          <span><strong>0</strong> backers</span>
+        </div>
+      </div>
+
+      <p class="ks-rewards-label">— ⚔️ Sword &amp; Juggling Tiers —</p>
+
+      <p class="ks-rewards-label" style="font-size:0.7rem; letter-spacing:1px;">🚀 Early Bird Swords (First 2 of each)</p>
+      <div class="ks-reward ks-reward--featured">
+        <div class="ks-reward__amount">$350 CAD (~$259 USD) <strike>$450 CAD (~$333 USD)</strike></div>
+        <div class="ks-reward__title">🚀 EARLY BIRD: Full-Size Contact Sword</div>
+        <div class="ks-reward__desc">Contact sword — big momentum, robust balance. 80cm blade, 50cm hilt. Double-sided LED strip. Petal bloom hilt. Includes custom LED mode.</div>
+        <div class="ks-reward__avail">
+          <span>2 of 2 remaining</span>
+          <span><strong>0</strong> backers</span>
+        </div>
+      </div>
+      <div class="ks-reward ks-reward--featured">
+        <div class="ks-reward__amount">$550 CAD (~$407 USD) <strike>$650 CAD (~$481 USD)</strike></div>
+        <div class="ks-reward__title">🚀 EARLY BIRD: Mini Sword Pair</div>
+        <div class="ks-reward__desc">Shorter blades for fast, dynamic doubles flow — the perfect poi-sized sword pair. One capsule each. Includes custom LED mode for the pair.</div>
+        <div class="ks-reward__avail">
+          <span>2 pairs remaining</span>
+          <span><strong>0</strong> backers</span>
+        </div>
+      </div>
+
+      <p class="ks-rewards-label" style="font-size:0.7rem; letter-spacing:1px; margin-top:8px;">Standard Sword Tiers</p>
+      <div class="ks-reward">
+        <div class="ks-reward__amount">$450 CAD (~$333 USD) <strike>$585 CAD (~$433 USD)</strike></div>
+        <div class="ks-reward__title">🗡️ Full-Size Contact Sword</div>
+        <div class="ks-reward__desc">Contact sword — big momentum, robust balance. 80cm blade, 50cm hilt. Double-sided
+          LED strip. Petal bloom hilt.</div>
+        <div class="ks-reward__avail">
+          <span>2 of 2 remaining</span>
+          <span><strong>0</strong> backers</span>
+        </div>
+      </div>
+      <div class="ks-reward">
+        <div class="ks-reward__amount">$650 CAD (~$481 USD) <strike>$845 CAD (~$625 USD)</strike></div>
+        <div class="ks-reward__title">⚔️ Mini Sword Pair</div>
+        <div class="ks-reward__desc">Shorter blades for fast, dynamic doubles flow — the perfect poi-sized sword pair.
+          One capsule each.</div>
+        <div class="ks-reward__avail">
+          <span>5 pairs remaining</span>
+          <span><strong>0</strong> backers</span>
+        </div>
+      </div>
+      <div class="ks-reward" style="border-color:rgba(168,85,247,.4);">
+        <div class="ks-reward__amount" style="color:#a855f7;">$850 CAD (~$629 USD) <strike>$1,105 CAD (~$818 USD)</strike></div>
+        <div class="ks-reward__title">🎪 Juggling Triples</div>
+        <div class="ks-reward__desc">Club-sized swords tuned to juggling — speed sensing, orientation detection, pattern
+          inputs.</div>
+        <div class="ks-reward__avail" style="margin-top:12px;">
+          <span>Limited spots</span>
+          <span><strong>0</strong> backers</span>
+        </div>
+      </div>
+
+      <!-- Creator box -->
+      <div class="ks-creator-box">
+        <p class="ks-creator-box__label">About the Creator</p>
+        <div class="ks-creator-box__inner">
+          <div class="ks-creator-box__avatar">🌸</div>
+          <div>
+            <div class="ks-creator-box__name">Petal Flow Labs</div>
+            <div class="ks-creator-box__sub">1 campaign · Canada 🇨🇦</div>
+          </div>
+        </div>
+        <a href="#" class="ks-creator-box__contact">✉ Message Creator</a>
+      </div>
+
+    </aside>
+    <!-- end .ks-sidebar -->
+
+  </div>
+  <!-- end .ks-layout -->
+
+  <!-- Footer -->
+  <footer class="ks-footer">
+    <div class="ks-footer__logo">Petal Flow Labs</div>
+    <p>
+      Hand-built in Canada · Founder's Edition — Limited Run<br>
+      Questions? <a href="#">Contact the creator directly on Kickstarter</a><br><br>
+      <span style="opacity:.5;">This page is a campaign preview. All prices in Canadian Dollars (CAD). Delivery ~10 – 18
+        weeks (approx. 2.5 to 4.5 months) after funding. All-or-nothing campaign.</span>
+    </p>
+  </footer>
+
+  <script>
+    /* ─ Animate funding bar on load ─ */
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const bar = document.getElementById('fundingBar');
+        if (bar) bar.style.width = '0%'; // set to real % when live
+      }, 500);
+    });
+
+    /* ─ Tab switching ─ */
+    document.querySelectorAll('.ks-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.ks-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+
+    /* ─ Reward card highlight on hover ─ */
+    document.querySelectorAll('.ks-reward').forEach(card => {
+      card.addEventListener('click', () => {
+        // Scroll to back button
+        document.getElementById('ks-back-btn').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    });
+
+    /* ─ Topbar scroll effect ─ */
+    window.addEventListener('scroll', () => {
+      const bar = document.getElementById('ks-topbar');
+      if (window.scrollY > 60) {
+        bar.style.background = 'rgba(10,10,10,.98)';
+      } else {
+        bar.style.background = '#111';
+      }
+    });
+  </script>
+</body>
+
+</html>
